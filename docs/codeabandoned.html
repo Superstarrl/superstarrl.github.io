@@ -87,38 +87,38 @@
                         The following snippets highlight my standards for naming, readability, commenting, and modular design:
                     </p>
 
-                    <pre><code>
-                        void DashAttack(float length)
-                        {
-                        GameObject player = GameObject.Find("Player");
+<pre><code>
+    void DashAttack(float length)
+    {
+    GameObject player = GameObject.Find("Player");
 
 
-                        GameObject attack = GameObject.CreatePrimitive(PrimitiveType.Cube);
+    GameObject attack = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-                        //decouple from player
-                        attack.transform.parent = null;
+    //decouple from player
+    attack.transform.parent = null;
 
-                        //set size and position and rotation
-                        attack.transform.localScale = new Vector3(length, 3f, 0.5f);
-                        attack.transform.position = player.transform.position; //move to player position
-                        attack.transform.Translate(player.transform.forward * (length / 2)); //move to halfway past player
-                        attack.transform.rotation = player.transform.rotation; //rotate to same as player
-                        attack.transform.Rotate(0, -90, 0);    //rotate again to correct angle
+    //set size and position and rotation
+    attack.transform.localScale = new Vector3(length, 3f, 0.5f);
+    attack.transform.position = player.transform.position; //move to player position
+    attack.transform.Translate(player.transform.forward * (length / 2)); //move to halfway past player
+    attack.transform.rotation = player.transform.rotation; //rotate to same as player
+    attack.transform.Rotate(0, -90, 0);    //rotate again to correct angle
 
 
-                        //make invisible
-                        attack.GetComponent<Renderer>
-                            ().enabled = false;
-                            //make trigger
-                            attack.GetComponent<Collider>
-                                ().isTrigger = true;
-                                //give it attack tag
-                                attack.tag = "AttackBox";
-                                //assign its script
-                                attack.AddComponent<AttackBox>
-                                    ();
-                                    }     
-                    </code></pre>
+    //make invisible
+    attack.GetComponent<Renderer>
+        ().enabled = false;
+        //make trigger
+        attack.GetComponent<Collider>
+            ().isTrigger = true;
+            //give it attack tag
+            attack.tag = "AttackBox";
+            //assign its script
+            attack.AddComponent<AttackBox>
+                ();
+                }     
+</code></pre>
 
                     <p>
                         More detailed code samples can be added depending on the system: combat logic, AI behaviors,

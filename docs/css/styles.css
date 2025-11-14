@@ -227,9 +227,9 @@ nav a {
         content: attr(data-alt);
         position: absolute;
         left: 50%;
-        bottom: 6px;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.75);
+        top: 100%; /* place tooltip below the image */
+        transform: translate(-50%, 8px);
+        background: rgba(0, 0, 0, 0.85);
         color: #fff;
         padding: 6px 10px;
         font-size: 14px;
@@ -237,12 +237,14 @@ nav a {
         opacity: 0;
         pointer-events: none;
         white-space: nowrap;
+        z-index: 5; /* ensure it appears above everything */
         transition: opacity 0.2s ease;
     }
 
     .gallery-item:hover::after {
         opacity: 1;
     }
+
 
 
 

@@ -296,6 +296,114 @@ pre {
         height: 100%;
     }
 
+/* About page layout */
+.about-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 32px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(11, 31, 58, 0.15);
+}
+
+.about-text {
+    flex: 2;
+}
+
+    .about-text h2 {
+        font-size: 32px;
+        margin-bottom: 4px;
+        color: #0B1F3A;
+    }
+
+.about-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3A6FF7;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 14px;
+}
+
+.about-highlights {
+    margin-top: 16px;
+}
+
+    .about-highlights h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #0B1F3A;
+    }
+
+    .about-highlights ul {
+        margin-left: 18px;
+    }
+
+/* skill pills */
+.pill-list {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pill {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #E2E6F3;
+    color: #0B1F3A;
+    font-size: 13px;
+}
+
+/* headshot */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+    .about-image img {
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(11, 31, 58, 0.25);
+        display: block;
+    }
+
+/* primary CTA button */
+.primary-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #3A6FF7;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    .primary-button:hover {
+        background: #0B1F3A;
+    }
+
+/* stack layout on smaller screens */
+@media (max-width: 800px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-image {
+        order: -1;
+        margin-bottom: 16px;
+    }
+}
 
 
 /* Footer */

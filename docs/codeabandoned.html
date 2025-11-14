@@ -19,26 +19,118 @@
 
     <section class="section">
         <h2>Code: Abandoned</h2>
+
+        <h3>Project Summary</h3>
         <p>
-            In a dystopian, cyberpunk future, e-waste has become more than just discarded junk, it has come to life. 
-            As an android named Q, you awake in a dark alleyway with no memory of your past, only to discover that the world around you is populated by hostile, 
-            sentient creatures formed from rogue tech and discarded appliances. Fight your way through this broken, chaotic world by battling the Tech Beasts, 
-            gathering their parts to repair and evolve yourself, and slowly uncovering the mysteries of your forgotten existence.
+            <em>Code: Abandoned</em> is an action-adventure prototype set in a decayed cyberpunk world where discarded
+            technology has evolved into hostile creatures known as Tech Beasts. You play as Q, an android who awakens
+            without memories and must repair, upgrade, and rediscover their identity through combat and exploration.
         </p>
 
-        <h3>Role & Contributions</h3>
-        <p>Insert what you did here.</p>
+        <h3>Context & Production</h3>
+        <ul>
+            <li><strong>Duration:</strong> (Insert the number of weeks/months)</li>
+            <li><strong>Team Size:</strong> (Solo / 2 people / etc.)</li>
+            <li><strong>Role:</strong> Systems Designer & (Programmer, Designer, etc.)</li>
+            <li><strong>Tools Used:</strong> Unity, C#, Photoshop/Krita, GitHub, etc.</li>
+            <li><strong>Project Status:</strong> Prototype / In development / Paused</li>
+        </ul>
+
+        <p>
+            This project was created to explore my ability to design interconnected gameplay systems and create internal
+            development tools that support iteration. The intention was to build a prototype that emphasized tight moment-to-moment
+            combat, readable enemy behavior, and a clear progression loop based on scavenging and self-modification.
+        </p>
+
+        <h3>Intent vs. Outcome</h3>
+        <p>
+            The original plan was to build a fully playable vertical slice including multiple enemy types, a salvage-based upgrade loop,
+            and a small explorable environment. While not all features were fully implemented, the project succeeded in defining the core
+            systems, testing the feel of combat, and validating the theme and tone of the world. Several systems proved more complex than
+            expected, leading to new optimizations and better system architecture in future projects.
+        </p>
+
+        <h3>What I Learned</h3>
+        <ul>
+            <li>Improved ability to build modular and extensible gameplay systems.</li>
+            <li>Learned how to create tools that speed up iteration (enemy spawners, hitbox visualizers, behavior scripting, etc.).</li>
+            <li>Refined workflow for AI prototyping and combat feel tuning.</li>
+            <li>Developed better understanding of scope management and production pacing.</li>
+        </ul>
 
         <h3>Systems Breakdown</h3>
         <ul>
-            <li>Mechanic A</li>
-            <li>Mechanic B</li>
-            <li>Mechanic C</li>
+            <li><strong>Enemy AI:</strong> State-driven behavior, detection systems, attack patterns.</li>
+            <li><strong>Combat System:</strong> Modular weapon actions, hit detection, damage events.</li>
+            <li><strong>Progression Loop:</strong> Salvage drops, upgrades, stats-based enhancement.</li>
+            <li><strong>Player Controls:</strong> Responsive movement, dodge mechanics, attack chains.</li>
+            <li><strong>Tools:</strong> Editor utilities for spawning, debugging, and playtesting systems.</li>
         </ul>
 
+        <h3>Raw Gameplay Footage</h3>
+        <p>Add 1–2 clips showing:</p>
+        <ul>
+            <li>Player movement & combat</li>
+            <li>Enemy AI interactions</li>
+            <li>Prototype arena or test environment</li>
+        </ul>
+        <p>(Embed YouTube or MP4 clips here)</p>
+
+        <h3>Sandbox Demonstrations</h3>
+        <p>
+            One of the best ways to evaluate a developer's work is to isolate individual systems.
+            Below are recommended sandbox demos you can include:
+        </p>
+        <ul>
+            <li>Enemy AI test scene (state transitions, chasing, attacking)</li>
+            <li>Combat sandbox (hitboxes, timing windows, damage feedback)</li>
+            <li>Upgrade loop test environment (salvage pickup, stat changes)</li>
+        </ul>
+
+        <h3>Code Samples</h3>
+        <p>
+            The following snippets highlight my standards for naming, readability, commenting, and modular design:
+        </p>
+
+        <pre><code>// Example: Enemy State Machine (simplified)
+public class EnemyStateMachine {
+    IEnemyState currentState;
+
+    public void ChangeState(IEnemyState newState) {
+        currentState?.OnExit();
+        currentState = newState;
+        currentState.OnEnter();
+    }
+
+    public void Update() {
+        currentState?.OnUpdate();
+    }
+}
+</code></pre>
+
+        <pre><code>// Example: Salvage Drop Component
+public class SalvageDrop : MonoBehaviour {
+    [SerializeField] int amount;
+
+    void OnDeath() {
+        PlayerInventory.AddSalvage(amount);
+    }
+}
+</code></pre>
+
+        <p>
+            More detailed code samples can be added depending on the system: combat logic, AI behaviors,
+            abilities, event-driven interactions, or tools.
+        </p>
+
         <h3>Gallery</h3>
-        <p>(Optional: embed images or videos)</p>
+        <p>(Insert images with short captions describing the context—no bare images)</p>
+
+        <footer style="margin-top:40px;">
+            <p>© 2025 Anthony — Portfolio Website</p>
+        </footer>
     </section>
+
 
     <footer>
         <p>© 2025 Anthony — Portfolio Website</p>

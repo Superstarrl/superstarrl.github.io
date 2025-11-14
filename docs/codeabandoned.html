@@ -59,6 +59,15 @@
                 </div>
 
                 <div class="project-section">
+                    <h3>My Contributions</h3>
+                    <ul>
+                        <li><strong>Dash Ability:</strong> Player Dash, Damaging Enemies During Dash, Invisible Player during dash</li>
+                        <li><strong>Game Mangement:</strong> Handle Scene Management, Level Completion, Global Level Completion Status</li>
+                        <li><strong>Controller Support:</strong> Implemented Controller Functionality</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
                     <h3>Raw Gameplay Footage</h3>
                     <p>Add 1–2 clips showing:</p>
                     <ul>
@@ -66,7 +75,7 @@
                         <li>Enemy AI interactions</li>
                         <li>Prototype arena or test environment</li>
                     </ul>
-                    <p>(Embed YouTube or MP4 clips here)</p>
+                    <p>https://www.youtube.com/watch?v=ELcvtAB1RnM</p>
                 </div>
 
                 <div class="project-section">
@@ -88,31 +97,38 @@
                         The following snippets highlight my standards for naming, readability, commenting, and modular design:
                     </p>
 
-<pre><code>// Example: Enemy State Machine (simplified)
-public class EnemyStateMachine {
-    IEnemyState currentState;
+                    <pre><code>
+                        void DashAttack(float length)
+                        {
+                        GameObject player = GameObject.Find("Player");
 
-    public void ChangeState(IEnemyState newState) {
-        currentState?.OnExit();
-        currentState = newState;
-        currentState.OnEnter();
-    }
 
-    public void Update() {
-        currentState?.OnUpdate();
-    }
-}
-</code></pre>
+                        GameObject attack = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-<pre><code>// Example: Salvage Drop Component
-public class SalvageDrop : MonoBehaviour {
-    [SerializeField] int amount;
+                        //decouple from player
+                        attack.transform.parent = null;
 
-    void OnDeath() {
-        PlayerInventory.AddSalvage(amount);
-    }
-}
-</code></pre>
+                        //set size and position and rotation
+                        attack.transform.localScale = new Vector3(length, 3f, 0.5f);
+                        attack.transform.position = player.transform.position; //move to player position
+                        attack.transform.Translate(player.transform.forward * (length / 2)); //move to halfway past player
+                        attack.transform.rotation = player.transform.rotation; //rotate to same as player
+                        attack.transform.Rotate(0, -90, 0);    //rotate again to correct angle
+
+
+                        //make invisible
+                        attack.GetComponent<Renderer>
+                            ().enabled = false;
+                            //make trigger
+                            attack.GetComponent<Collider>
+                                ().isTrigger = true;
+                                //give it attack tag
+                                attack.tag = "AttackBox";
+                                //assign its script
+                                attack.AddComponent<AttackBox>
+                                    ();
+                                    }     
+                    </code></pre>
 
                     <p>
                         More detailed code samples can be added depending on the system: combat logic, AI behaviors,
@@ -150,9 +166,5 @@ public class SalvageDrop : MonoBehaviour {
             </aside>
         </div>
     </section>
-
-    <footer>
-        <p>© 2025 Anthony — Portfolio Website</p>
-    </footer>
 </body>
 </html>

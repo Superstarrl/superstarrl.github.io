@@ -221,6 +221,10 @@ nav a {
 .gallery-item {
     position: relative;
     cursor: pointer;
+    display: inline-block;
+    overflow: hidden; /* ensures tooltip stays on the image */
+    border-radius: 10px;
+}
 }
 
     .gallery-item::after {

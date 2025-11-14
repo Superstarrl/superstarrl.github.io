@@ -26,6 +26,19 @@
             </p>
         </div>
 
+        <!-- Full-width trailer section -->
+        <div class="project-section full-width">
+            <h3>Game Trailer</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ELcvtAB1RnM"
+                        title="Code: Abandoned Trailer"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
         <div class="project-grid">
             <!-- Main content column -->
             <div class="project-main">
@@ -68,57 +81,36 @@
                 </div>
 
                 <div class="project-section">
-                    <h3>Game Trailer</h3>
-
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/ELcvtAB1RnM"
-                                title="Code: Abandoned Trailer"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-
-                <div class="project-section">
                     <h3>Code Samples</h3>
                     <p>
                         The following snippets highlight my standards for naming, readability, commenting, and modular design:
                     </p>
 
-<pre><code>
-    void DashAttack(float length)
-    {
+<pre><code>void DashAttack(float length)
+{
     GameObject player = GameObject.Find("Player");
-
 
     GameObject attack = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-    //decouple from player
+    // decouple from player
     attack.transform.parent = null;
 
-    //set size and position and rotation
+    // set size and position and rotation
     attack.transform.localScale = new Vector3(length, 3f, 0.5f);
-    attack.transform.position = player.transform.position; //move to player position
-    attack.transform.Translate(player.transform.forward * (length / 2)); //move to halfway past player
-    attack.transform.rotation = player.transform.rotation; //rotate to same as player
-    attack.transform.Rotate(0, -90, 0);    //rotate again to correct angle
+    attack.transform.position = player.transform.position; // move to player position
+    attack.transform.Translate(player.transform.forward * (length / 2)); // move halfway past player
+    attack.transform.rotation = player.transform.rotation; // rotate to same as player
+    attack.transform.Rotate(0, -90, 0); // rotate again to correct angle
 
-
-    //make invisible
-    attack.GetComponent<Renderer>
-        ().enabled = false;
-        //make trigger
-        attack.GetComponent<Collider>
-            ().isTrigger = true;
-            //give it attack tag
-            attack.tag = "AttackBox";
-            //assign its script
-            attack.AddComponent<AttackBox>
-                ();
-                }     
-</code></pre>
+    // make invisible
+    attack.GetComponent&lt;Renderer&gt;().enabled = false;
+    // make trigger
+    attack.GetComponent&lt;Collider&gt;().isTrigger = true;
+    // give it attack tag
+    attack.tag = "AttackBox";
+    // assign its script
+    attack.AddComponent&lt;AttackBox&gt;();
+}</code></pre>
 
                     <p>
                         More detailed code samples can be added depending on the system: combat logic, AI behaviors,
@@ -140,7 +132,7 @@
                     <ul class="project-meta-list">
                         <li><strong>Duration:</strong> 2 Months</li>
                         <li><strong>Team Size:</strong> 9</li>
-                        <li><strong>Role:</strong> Lead Programmer &amp; Systems Designer</li>
+                        <li><strong>Role:</strong> Lead Programmer and Systems Designer</li>
                         <li><strong>Project Status:</strong> Completed</li>
                     </ul>
                 </div>
@@ -152,6 +144,11 @@
                         <li>C#</li>
                         <li>GitHub</li>
                     </ul>
+                </div>
+
+                <div class="project-sidebar-card">
+                    <h3>Gallery</h3>
+                    <p>(Insert images with short captions describing the context—no bare images)</p>
                 </div>
             </aside>
         </div>

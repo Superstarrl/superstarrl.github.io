@@ -89,12 +89,51 @@
                     <h3>Code Samples</h3>
                     <p>As systems evolve, this section will contain selected code excerpts demonstrating structure, readability, and modularity.</p>
 
-<pre><code>// Example placeholder snippet
-public class TestController {
-    void Update() {
-        // Movement prototype logic goes here
+<pre><code>
+    public void SelectEmotion(Emotions emotion)
+    {
+    selectedEmotion = emotion;
+    UpgradeEmotion();
     }
-}
+
+    void DeselectEmotion() => selectedEmotion = Emotions.None;
+
+    public void UpgradeEmotion()
+    {
+    upgradeLevel++;
+    LevelChange();
+    }
+
+    public void DowngradeEmotion()
+    {
+    upgradeLevel = Mathf.Max(0, upgradeLevel - 1);
+    LevelChange();
+    if (upgradeLevel == 0) DeselectEmotion();
+    }
+</code></pre>
+
+<pre><code>
+    public void CheckCombos() //check upgrade scripts to see if any combos exist **change return type to a list**
+    {
+    foreach (ComboUpgrade combo in comboUpgrades)
+    {
+    Upgrade upgradeScript;
+
+    //check 1st stats, if any dont match - hasCombo = false, continue
+    upgradeScript = GetUpgradeScript(combo.upgrade1);
+
+    if (upgradeScript == null) { combo.hasCombo = false; continue; }
+
+    if (upgradeScript.selectedEmotion != combo.emotion1) { combo.hasCombo = false; continue; }
+    if (upgradeScript.upgradeLevel < combo.emotion1Level) { combo.hasCombo = false; continue; }
+
+    //check 2nd stats, if any dont match - hasCombo = false, continue
+    upgradeScript = GetUpgradeScript(combo.upgrade2);
+    if (upgradeScript.selectedEmotion != combo.emotion2) { combo.hasCombo = false; continue; }
+    if (upgradeScript.upgradeLevel < combo.emotion2Level) { combo.hasCombo = false; continue; }
+
+    combo.hasCombo = true;
+    Debug.Log($"activated {combo.name} combo");
 </code></pre>
 
                 </div>
@@ -121,8 +160,7 @@ public class TestController {
                 <div class="project-sidebar-card">
                     <h3>Current Goals</h3>
                     <p>
-                        Improve responsiveness, add new combat actions, refine camera behavior,
-                        and prepare the foundation for future progression systems.
+                        Continue to implement new systems relating to upgrades, and implement a map system for player navigation
                     </p>
                 </div>
 

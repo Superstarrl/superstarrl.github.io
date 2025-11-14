@@ -91,6 +91,16 @@ nav a {
     transition: transform .2s ease;
 }
 
+    /* New: project images */
+    .project-card img {
+        width: 100%;
+        height: 180px; /* adjust this if you want them taller/shorter */
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        display: block;
+    }
+
     .project-card:hover {
         transform: translateY(-5px);
     }

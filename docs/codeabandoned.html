@@ -17,82 +17,91 @@
         </nav>
     </header>
 
-    <section class="section">
-        <h2>Code: Abandoned</h2>
+    <section class="section project-page">
+        <div class="project-header">
+            <h2>Code: Abandoned</h2>
+            <p class="project-tagline">
+                An action-adventure prototype set in a decayed cyberpunk world where discarded
+                technology has evolved into hostile creatures known as Tech Beasts.
+            </p>
+        </div>
 
-        <h3>Project Summary</h3>
-        <p>
-            <em>Code: Abandoned</em> is an action-adventure prototype set in a decayed cyberpunk world where discarded
-            technology has evolved into hostile creatures known as Tech Beasts. You play as Q, an android who awakens
-            without memories and must repair, upgrade, and rediscover their identity through combat and exploration.
-        </p>
+        <div class="project-grid">
+            <!-- Main content column -->
+            <div class="project-main">
 
-        <h3>Context & Production</h3>
-        <ul>
-            <li><strong>Duration:</strong> (Insert the number of weeks/months)</li>
-            <li><strong>Team Size:</strong> (Solo / 2 people / etc.)</li>
-            <li><strong>Role:</strong> Systems Designer & (Programmer, Designer, etc.)</li>
-            <li><strong>Tools Used:</strong> Unity, C#, Photoshop/Krita, GitHub, etc.</li>
-            <li><strong>Project Status:</strong> Prototype / In development / Paused</li>
-        </ul>
+                <div class="project-section">
+                    <h3>Project Summary</h3>
+                    <p>
+                        <em>Code: Abandoned</em> is an action-adventure prototype set in a decayed cyberpunk world where discarded
+                        technology has evolved into hostile creatures known as Tech Beasts. You play as Q, an android who awakens
+                        without memories and must repair, upgrade, and rediscover their identity through combat and exploration.
+                    </p>
+                </div>
 
-        <p>
-            This project was created to explore my ability to design interconnected gameplay systems and create internal
-            development tools that support iteration. The intention was to build a prototype that emphasized tight moment-to-moment
-            combat, readable enemy behavior, and a clear progression loop based on scavenging and self-modification.
-        </p>
+                <div class="project-section">
+                    <h3>Intent vs. Outcome</h3>
+                    <p>
+                        The original plan was to build a fully playable vertical slice including multiple enemy types, a salvage-based
+                        upgrade loop, and a small explorable environment. While not all features were fully implemented, the project
+                        succeeded in defining the core systems, testing the feel of combat, and validating the theme and tone of the world.
+                        Several systems proved more complex than expected, leading to new optimizations and better system architecture in
+                        future projects.
+                    </p>
+                </div>
 
-        <h3>Intent vs. Outcome</h3>
-        <p>
-            The original plan was to build a fully playable vertical slice including multiple enemy types, a salvage-based upgrade loop,
-            and a small explorable environment. While not all features were fully implemented, the project succeeded in defining the core
-            systems, testing the feel of combat, and validating the theme and tone of the world. Several systems proved more complex than
-            expected, leading to new optimizations and better system architecture in future projects.
-        </p>
+                <div class="project-section">
+                    <h3>What I Learned</h3>
+                    <ul>
+                        <li>Improved ability to build modular and extensible gameplay systems.</li>
+                        <li>Learned how to create tools that speed up iteration (enemy spawners, hitbox visualizers, behavior scripting, etc.).</li>
+                        <li>Refined workflow for AI prototyping and combat feel tuning.</li>
+                        <li>Developed better understanding of scope management and production pacing.</li>
+                    </ul>
+                </div>
 
-        <h3>What I Learned</h3>
-        <ul>
-            <li>Improved ability to build modular and extensible gameplay systems.</li>
-            <li>Learned how to create tools that speed up iteration (enemy spawners, hitbox visualizers, behavior scripting, etc.).</li>
-            <li>Refined workflow for AI prototyping and combat feel tuning.</li>
-            <li>Developed better understanding of scope management and production pacing.</li>
-        </ul>
+                <div class="project-section">
+                    <h3>Systems Breakdown</h3>
+                    <ul>
+                        <li><strong>Enemy AI:</strong> State-driven behavior, detection systems, attack patterns.</li>
+                        <li><strong>Combat System:</strong> Modular weapon actions, hit detection, damage events.</li>
+                        <li><strong>Progression Loop:</strong> Salvage drops, upgrades, stats-based enhancement.</li>
+                        <li><strong>Player Controls:</strong> Responsive movement, dodge mechanics, attack chains.</li>
+                        <li><strong>Tools:</strong> Editor utilities for spawning, debugging, and playtesting systems.</li>
+                    </ul>
+                </div>
 
-        <h3>Systems Breakdown</h3>
-        <ul>
-            <li><strong>Enemy AI:</strong> State-driven behavior, detection systems, attack patterns.</li>
-            <li><strong>Combat System:</strong> Modular weapon actions, hit detection, damage events.</li>
-            <li><strong>Progression Loop:</strong> Salvage drops, upgrades, stats-based enhancement.</li>
-            <li><strong>Player Controls:</strong> Responsive movement, dodge mechanics, attack chains.</li>
-            <li><strong>Tools:</strong> Editor utilities for spawning, debugging, and playtesting systems.</li>
-        </ul>
+                <div class="project-section">
+                    <h3>Raw Gameplay Footage</h3>
+                    <p>Add 1–2 clips showing:</p>
+                    <ul>
+                        <li>Player movement &amp; combat</li>
+                        <li>Enemy AI interactions</li>
+                        <li>Prototype arena or test environment</li>
+                    </ul>
+                    <p>(Embed YouTube or MP4 clips here)</p>
+                </div>
 
-        <h3>Raw Gameplay Footage</h3>
-        <p>Add 1–2 clips showing:</p>
-        <ul>
-            <li>Player movement & combat</li>
-            <li>Enemy AI interactions</li>
-            <li>Prototype arena or test environment</li>
-        </ul>
-        <p>(Embed YouTube or MP4 clips here)</p>
+                <div class="project-section">
+                    <h3>Sandbox Demonstrations</h3>
+                    <p>
+                        One of the best ways to evaluate a developer's work is to isolate individual systems.
+                        Below are recommended sandbox demos you can include:
+                    </p>
+                    <ul>
+                        <li>Enemy AI test scene (state transitions, chasing, attacking)</li>
+                        <li>Combat sandbox (hitboxes, timing windows, damage feedback)</li>
+                        <li>Upgrade loop test environment (salvage pickup, stat changes)</li>
+                    </ul>
+                </div>
 
-        <h3>Sandbox Demonstrations</h3>
-        <p>
-            One of the best ways to evaluate a developer's work is to isolate individual systems.
-            Below are recommended sandbox demos you can include:
-        </p>
-        <ul>
-            <li>Enemy AI test scene (state transitions, chasing, attacking)</li>
-            <li>Combat sandbox (hitboxes, timing windows, damage feedback)</li>
-            <li>Upgrade loop test environment (salvage pickup, stat changes)</li>
-        </ul>
+                <div class="project-section">
+                    <h3>Code Samples</h3>
+                    <p>
+                        The following snippets highlight my standards for naming, readability, commenting, and modular design:
+                    </p>
 
-        <h3>Code Samples</h3>
-        <p>
-            The following snippets highlight my standards for naming, readability, commenting, and modular design:
-        </p>
-
-        <pre><code>// Example: Enemy State Machine (simplified)
+<pre><code>// Example: Enemy State Machine (simplified)
 public class EnemyStateMachine {
     IEnemyState currentState;
 
@@ -108,7 +117,7 @@ public class EnemyStateMachine {
 }
 </code></pre>
 
-        <pre><code>// Example: Salvage Drop Component
+<pre><code>// Example: Salvage Drop Component
 public class SalvageDrop : MonoBehaviour {
     [SerializeField] int amount;
 
@@ -118,23 +127,54 @@ public class SalvageDrop : MonoBehaviour {
 }
 </code></pre>
 
-        <p>
-            More detailed code samples can be added depending on the system: combat logic, AI behaviors,
-            abilities, event-driven interactions, or tools.
-        </p>
+                    <p>
+                        More detailed code samples can be added depending on the system: combat logic, AI behaviors,
+                        abilities, event-driven interactions, or tools.
+                    </p>
+                </div>
 
-        <h3>Gallery</h3>
-        <p>(Insert images with short captions describing the context—no bare images)</p>
+                <div class="project-section">
+                    <h3>Gallery</h3>
+                    <p>(Insert images with short captions describing the context—no bare images)</p>
+                </div>
 
-        <footer style="margin-top:40px;">
-            <p>© 2025 Anthony — Portfolio Website</p>
-        </footer>
+            </div>
+
+            <!-- Sidebar column -->
+            <aside class="project-sidebar">
+                <div class="project-sidebar-card">
+                    <h3>Quick Facts</h3>
+                    <ul class="project-meta-list">
+                        <li><strong>Duration:</strong> (Insert the number of weeks/months)</li>
+                        <li><strong>Team Size:</strong> (Solo / 2 people / etc.)</li>
+                        <li><strong>Role:</strong> Systems Designer &amp; (Programmer, Designer, etc.)</li>
+                        <li><strong>Project Status:</strong> Prototype / In development / Paused</li>
+                    </ul>
+                </div>
+
+                <div class="project-sidebar-card">
+                    <h3>Tools</h3>
+                    <ul class="project-meta-list">
+                        <li>Unity</li>
+                        <li>C#</li>
+                        <li>Photoshop / Krita</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="project-sidebar-card">
+                    <h3>Focus</h3>
+                    <p>
+                        Designing interconnected gameplay systems and internal tools that support fast iteration,
+                        readable combat behavior, and a clear upgrade loop.
+                    </p>
+                </div>
+            </aside>
+        </div>
     </section>
-
 
     <footer>
         <p>© 2025 Anthony — Portfolio Website</p>
     </footer>
 </body>
 </html>
-

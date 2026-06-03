@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mechanisoul - Project Showcase</title>
+    <title>Code: Abandoned - Project Showcase</title>
     <link rel="stylesheet" href="css/styles.css" />
 </head>
-
 <body>
     <header>
         <h1>Anthony Rattigan - Systems Designer</h1>
@@ -17,24 +16,20 @@
     </header>
 
     <section class="section project-page">
-
-        <!-- Project header -->
         <div class="project-header">
-            <h2>Mechanisoul <span style="font-size:18px; opacity:0.8;">(In Development)</span></h2>
+            <h2>Code: Abandoned</h2>
             <p class="project-tagline">
-                A systems-driven action prototype focused on expressive movement,
-                modular combat, and understanding mechanical consciousness in a world of living machines.
+                An action-adventure prototype set in a decayed cyberpunk world where discarded
+                technology has evolved into hostile creatures known as Tech Beasts.
             </p>
         </div>
 
-        <!-- Full-width video section (placeholder until video is added) -->
+        <!-- Full-width trailer section -->
         <div class="project-section full-width">
-            <h3>Prototype Footage</h3>
-            <p>This section will showcase early gameplay clips as the project evolves.</p>
-
+            <h3>Game Trailer</h3>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/g1CCLBe-ao4"
-                        title="Mechanisoul Gameplay"
+                <iframe src="https://www.youtube.com/embed/ELcvtAB1RnM"
+                        title="Code: Abandoned Trailer"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
@@ -42,138 +37,124 @@
             </div>
         </div>
 
-        <!-- Two-column project layout -->
         <div class="project-grid">
-
-            <!-- MAIN COLUMN -->
+            <!-- Main content column -->
             <div class="project-main">
 
                 <div class="project-section">
                     <h3>Project Summary</h3>
                     <p>
-                        <em>Mechanisoul</em> is an action-combat prototype centered around a mechanical being
-                        discovering its own consciousness through movement, combat, and systems interaction.
-                        The project is designed as a long-term sandbox where core systems—movement, combat feel,
-                        AI behavior, and progression—can be iterated on and reused across future titles.
+                        <em>Code: Abandoned</em> is an action-adventure prototype set in a decayed cyberpunk world where discarded
+                        technology has evolved into hostile creatures known as Tech Beasts. You play as Q, an android who awakens
+                        without memories and must repair, upgrade, and rediscover their identity through combat and exploration.
                     </p>
                 </div>
 
                 <div class="project-section">
-                    <h3>Intent</h3>
+                    <h3>Intent vs. Outcome</h3>
                     <p>
-                        The goal is to create a difficult, yet rewarding, combat system with a variety of upgrades and combos that
-                        create a very replayable experience
+                        From the start the team was aiming to create a fast-paced environment that made sure the player was always moving quickly in pursuit of the goal.
+                        We also wanted to have responsive movement systems that was fun to interface with, and enhanced the gameplay experience we were looking for.
+                        Following the conclusion of this project, I believe we were largely successful in carrying out our vision. While I believe given more time there
+                        could have been additional polish that made the game even better, I am happy with the state it is in.
                     </p>
                 </div>
 
                 <div class="project-section">
-                    <h3>What I Have Learned So Far</h3>
+                    <h3>What I Learned</h3>
                     <ul>
-                        <li>Improvements in designing and building Modular System Frameworks that Allow for flexible implementation</li>
-                        <li>Improved Communication when working with a larger coding team</li>
+                        <li>Gained an understanding for how to lead a team of coders, and manage a codebase for the entire team</li>
+                        <li>Additional experience with designing flexible game systems that are easy to understand and interface with</li>
+                        <li>Refined my expertise in using Unity's physics system and rigidbodies to create responsive movement systems</li>
                     </ul>
                 </div>
 
                 <div class="project-section">
                     <h3>My Contributions</h3>
                     <ul>
-                        <li><strong>Upgrade Framework:</strong> Framework for creating and implementing Player Upgrade Systems</li>
-                        <li><strong>Melee Upgrades:</strong> Implementation of Melee Upgrade System</li>
-                        <li><strong>UI Integration:</strong> Link all Upgrade Components to their UI counterparts</li>
+                        <li><strong>Dash Ability:</strong> Player Dash, Damaging Enemies During Dash, Invisible Player during dash</li>
+                        <li><strong>Game Mangement:</strong> Handle Scene Management, Level Completion, Global Level Completion Status</li>
+                        <li><strong>Controller Support:</strong> Implement Controller Functionality</li>
                     </ul>
                 </div>
 
                 <div class="project-section">
                     <h3>Code Samples</h3>
-                    <p>As systems evolve, this section will contain selected code excerpts demonstrating structure, readability, and modularity.</p>
+                    <p>
+                        The following snippets highlight my standards for naming, readability, commenting, and modular design:
+                    </p>
 
-<pre><code>
-    public void SelectEmotion(Emotions emotion)
-    {
-    selectedEmotion = emotion;
-    UpgradeEmotion();
-    }
+<pre><code>void DashAttack(float length)
+{
+    GameObject player = GameObject.Find("Player");
 
-    void DeselectEmotion() => selectedEmotion = Emotions.None;
+    GameObject attack = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-    public void UpgradeEmotion()
-    {
-    upgradeLevel++;
-    LevelChange();
-    }
+    // decouple from player
+    attack.transform.parent = null;
 
-    public void DowngradeEmotion()
-    {
-    upgradeLevel = Mathf.Max(0, upgradeLevel - 1);
-    LevelChange();
-    if (upgradeLevel == 0) DeselectEmotion();
-    }
-</code></pre>
+    // set size and position and rotation
+    attack.transform.localScale = new Vector3(length, 3f, 0.5f);
+    attack.transform.position = player.transform.position; // move to player position
+    attack.transform.Translate(player.transform.forward * (length / 2)); // move halfway past player
+    attack.transform.rotation = player.transform.rotation; // rotate to same as player
+    attack.transform.Rotate(0, -90, 0); // rotate again to correct angle
 
-<pre><code>
-    public void CheckCombos() //check upgrade scripts to see if any combos exist **change return type to a list**
-    {
-    foreach (ComboUpgrade combo in comboUpgrades)
-    {
-    Upgrade upgradeScript;
+    // make invisible
+    attack.GetComponent&lt;Renderer&gt;().enabled = false;
+    // make trigger
+    attack.GetComponent&lt;Collider&gt;().isTrigger = true;
+    // give it attack tag
+    attack.tag = "AttackBox";
+    // assign its script
+    attack.AddComponent&lt;AttackBox&gt;();
+}</code></pre>
+                </div>
+            </div>
 
-    //check 1st stats, if any dont match - hasCombo = false, continue
-    upgradeScript = GetUpgradeScript(combo.upgrade1);
-
-    if (upgradeScript == null) { combo.hasCombo = false; continue; }
-
-    if (upgradeScript.selectedEmotion != combo.emotion1) { combo.hasCombo = false; continue; }
-    if (upgradeScript.upgradeLevel < combo.emotion1Level) { combo.hasCombo = false; continue; }
-
-    //check 2nd stats, if any dont match - hasCombo = false, continue
-    upgradeScript = GetUpgradeScript(combo.upgrade2);
-    if (upgradeScript.selectedEmotion != combo.emotion2) { combo.hasCombo = false; continue; }
-    if (upgradeScript.upgradeLevel < combo.emotion2Level) { combo.hasCombo = false; continue; }
-
-    combo.hasCombo = true;
-    Debug.Log($"activated {combo.name} combo");
-</code></pre>
-
+            <!-- Sidebar column -->
+            <aside class="project-sidebar">
+                <div class="project-sidebar-card">
+                    <h3>Quick Facts</h3>
+                    <ul class="project-meta-list">
+                        <li><strong>Duration:</strong> 2 Months</li>
+                        <li><strong>Team Size:</strong> 9</li>
+                        <li><strong>Role:</strong> Lead Programmer and Systems Designer</li>
+                        <li><strong>Project Status:</strong> Completed</li>
+                    </ul>
                 </div>
 
-                <div class="project-section">
+                <div class="project-sidebar-card">
+                    <h3>Tools</h3>
+                    <ul class="project-meta-list">
+                        <li>Unity</li>
+                        <li>C#</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="project-sidebar-card">
                     <h3>Gallery</h3>
+
                     <div class="gallery-grid">
-                        <div class="gallery-item" data-alt="Upgrades UI">
-                            <img src="images/ms1.jpg" alt="Upgrades UI">
+                        <div class="gallery-item" data-alt="Sewer Level">
+                            <img src="images/ca1.jpg" alt="Sewer Level">
                         </div>
-                        <div class="gallery-item" data-alt="Warehouse Level">
-                            <img src="images/ms2.png" alt="Warehouse Level">
+                        <div class="gallery-item" data-alt="Boss Level">
+                            <img src="images/ca2.png" alt="Boss Level">
+                        </div>
+                        <div class="gallery-item" data-alt="Hub Level">
+                            <img src="images/ca3.png" alt="Hub Level">
+                        </div>
+                        <div class="gallery-item" data-alt="Rooftops Level">
+                            <img src="images/ca4.png" alt="Rooftops Level">
                         </div>
 
                     </div>
                 </div>
 
-            </div>
-
-            <!-- SIDEBAR -->
-            <aside class="project-sidebar">
-
-                <div class="project-sidebar-card">
-                    <h3>Quick Facts</h3>
-                    <ul class="project-meta-list">
-                        <li><strong>Status:</strong> In Development</li>
-                        <li><strong>Role:</strong> Systems Designer & Programmer</li>
-                        <li><strong>Tools:</strong> Unity, C#, GitHub</li>
-                    </ul>
-                </div>
-
-                <div class="project-sidebar-card">
-                    <h3>Current Goals</h3>
-                    <p>
-                        Continue to implement new systems relating to upgrades, and implement a map system for player navigation
-                    </p>
-                </div>
-
             </aside>
-
         </div>
     </section>
-
 </body>
 </html>

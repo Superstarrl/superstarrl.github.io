@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mechanisoul - Project Showcase</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Anthony Rattigan - Systems Designer</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="section project-page">
+
+        <!-- Project header -->
+        <div class="project-header">
+            <h2>Mechanisoul <span style="font-size:18px; opacity:0.8;">(In Development)</span></h2>
+            <p class="project-tagline">
+                A systems-driven action prototype focused on expressive movement,
+                modular combat, and understanding mechanical consciousness in a world of living machines.
+            </p>
+        </div>
+
+        <!-- Full-width video section (placeholder until video is added) -->
+        <div class="project-section full-width">
+            <h3>Prototype Footage</h3>
+            <p>This section will showcase early gameplay clips as the project evolves.</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/g1CCLBe-ao4"
+                        title="Mechanisoul Gameplay"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Two-column project layout -->
+        <div class="project-grid">
+
+            <!-- MAIN COLUMN -->
+            <div class="project-main">
+
+                <div class="project-section">
+                    <h3>Project Summary</h3>
+                    <p>
+                        <em>Mechanisoul</em> is an action-combat prototype centered around a mechanical being
+                        discovering its own consciousness through movement, combat, and systems interaction.
+                        The project is designed as a long-term sandbox where core systems—movement, combat feel,
+                        AI behavior, and progression—can be iterated on and reused across future titles.
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3>Intent</h3>
+                    <p>
+                        The goal is to create a difficult, yet rewarding, combat system with a variety of upgrades and combos that
+                        create a very replayable experience
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h3>What I Have Learned So Far</h3>
+                    <ul>
+                        <li>Improvements in designing and building Modular System Frameworks that Allow for flexible implementation</li>
+                        <li>Improved Communication when working with a larger coding team</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>My Contributions</h3>
+                    <ul>
+                        <li><strong>Upgrade Framework:</strong> Framework for creating and implementing Player Upgrade Systems</li>
+                        <li><strong>Melee Upgrades:</strong> Implementation of Melee Upgrade System</li>
+                        <li><strong>UI Integration:</strong> Link all Upgrade Components to their UI counterparts</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Code Samples</h3>
+                    <p>As systems evolve, this section will contain selected code excerpts demonstrating structure, readability, and modularity.</p>
+
+<pre><code>
+    public void SelectEmotion(Emotions emotion)
+    {
+    selectedEmotion = emotion;
+    UpgradeEmotion();
+    }
+
+    void DeselectEmotion() => selectedEmotion = Emotions.None;
+
+    public void UpgradeEmotion()
+    {
+    upgradeLevel++;
+    LevelChange();
+    }
+
+    public void DowngradeEmotion()
+    {
+    upgradeLevel = Mathf.Max(0, upgradeLevel - 1);
+    LevelChange();
+    if (upgradeLevel == 0) DeselectEmotion();
+    }
+</code></pre>
+
+<pre><code>
+    public void CheckCombos() //check upgrade scripts to see if any combos exist **change return type to a list**
+    {
+    foreach (ComboUpgrade combo in comboUpgrades)
+    {
+    Upgrade upgradeScript;
+
+    //check 1st stats, if any dont match - hasCombo = false, continue
+    upgradeScript = GetUpgradeScript(combo.upgrade1);
+
+    if (upgradeScript == null) { combo.hasCombo = false; continue; }
+
+    if (upgradeScript.selectedEmotion != combo.emotion1) { combo.hasCombo = false; continue; }
+    if (upgradeScript.upgradeLevel < combo.emotion1Level) { combo.hasCombo = false; continue; }
+
+    //check 2nd stats, if any dont match - hasCombo = false, continue
+    upgradeScript = GetUpgradeScript(combo.upgrade2);
+    if (upgradeScript.selectedEmotion != combo.emotion2) { combo.hasCombo = false; continue; }
+    if (upgradeScript.upgradeLevel < combo.emotion2Level) { combo.hasCombo = false; continue; }
+
+    combo.hasCombo = true;
+    Debug.Log($"activated {combo.name} combo");
+</code></pre>
+
+                </div>
+
+                <div class="project-section">
+                    <h3>Gallery</h3>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" data-alt="Upgrades UI">
+                            <img src="images/ms1.jpg" alt="Upgrades UI">
+                        </div>
+                        <div class="gallery-item" data-alt="Warehouse Level">
+                            <img src="images/ms2.png" alt="Warehouse Level">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SIDEBAR -->
+            <aside class="project-sidebar">
+
+                <div class="project-sidebar-card">
+                    <h3>Quick Facts</h3>
+                    <ul class="project-meta-list">
+                        <li><strong>Status:</strong> In Development</li>
+                        <li><strong>Role:</strong> Systems Designer & Programmer</li>
+                        <li><strong>Tools:</strong> Unity, C#, GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="project-sidebar-card">
+                    <h3>Current Goals</h3>
+                    <p>
+                        Continue to implement new systems relating to upgrades, and implement a map system for player navigation
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+    </section>
+
+</body>
+</html>

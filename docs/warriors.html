@@ -96,31 +96,21 @@
                         The following snippets highlight my standards for naming, readability, commenting, and modular design:
                     </p>
 
-<pre><code>void DashAttack(float length)
-{
-    GameObject player = GameObject.Find("Player");
+                    <div class="gallery-grid">
+                        <div class="gallery-item" data-alt="Sewer Level">
+                            <img src="images/ca1.jpg" alt="Sewer Level">
+                        </div>
+                        <div class="gallery-item" data-alt="Boss Level">
+                            <img src="images/ca2.png" alt="Boss Level">
+                        </div>
+                        <div class="gallery-item" data-alt="Hub Level">
+                            <img src="images/ca3.png" alt="Hub Level">
+                        </div>
+                        <div class="gallery-item" data-alt="Rooftops Level">
+                            <img src="images/ca4.png" alt="Rooftops Level">
+                        </div>
 
-    GameObject attack = GameObject.CreatePrimitive(PrimitiveType.Cube);
-
-    // decouple from player
-    attack.transform.parent = null;
-
-    // set size and position and rotation
-    attack.transform.localScale = new Vector3(length, 3f, 0.5f);
-    attack.transform.position = player.transform.position; // move to player position
-    attack.transform.Translate(player.transform.forward * (length / 2)); // move halfway past player
-    attack.transform.rotation = player.transform.rotation; // rotate to same as player
-    attack.transform.Rotate(0, -90, 0); // rotate again to correct angle
-
-    // make invisible
-    attack.GetComponent&lt;Renderer&gt;().enabled = false;
-    // make trigger
-    attack.GetComponent&lt;Collider&gt;().isTrigger = true;
-    // give it attack tag
-    attack.tag = "AttackBox";
-    // assign its script
-    attack.AddComponent&lt;AttackBox&gt;();
-}</code></pre>
+                    </div>
                 </div>
             </div>
 
